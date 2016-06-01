@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D6039B5B59804510CD73C836 /* Pods_SocialApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886929C1F4D80EA808048B5B /* Pods_SocialApp.framework */; };
-		D84105501CFE7F4000636951 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D841054C1CFE7F4000636951 /* Bolts.framework */; };
-		D84105511CFE7F4000636951 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D841054D1CFE7F4000636951 /* FBSDKCoreKit.framework */; };
-		D84105521CFE7F4000636951 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D841054E1CFE7F4000636951 /* FBSDKLoginKit.framework */; };
-		D84105531CFE7F4000636951 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D841054F1CFE7F4000636951 /* FBSDKShareKit.framework */; };
 		D84105591CFE840700636951 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84105581CFE840700636951 /* MaterialView.swift */; };
 		D841055B1CFE841A00636951 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841055A1CFE841A00636951 /* MaterialButton.swift */; };
 		D841055D1CFE842C00636951 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841055C1CFE842C00636951 /* MaterialTextField.swift */; };
@@ -20,6 +16,9 @@
 		D84105661CFE84A000636951 /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D84105621CFE84A000636951 /* NotoSans-BoldItalic.ttf */; };
 		D84105671CFE84A000636951 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D84105631CFE84A000636951 /* NotoSans-Italic.ttf */; };
 		D84105681CFE84A000636951 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D84105641CFE84A000636951 /* NotoSans-Regular.ttf */; };
+		D841056D1CFE88B600636951 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D841056A1CFE88B600636951 /* Bolts.framework */; };
+		D841056E1CFE88B600636951 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D841056B1CFE88B600636951 /* FBSDKCoreKit.framework */; };
+		D841056F1CFE88B600636951 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D841056C1CFE88B600636951 /* FBSDKLoginKit.framework */; };
 		D8F7D7BF1CFE317E00ACFAAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7D7BE1CFE317E00ACFAAB /* AppDelegate.swift */; };
 		D8F7D7C11CFE317E00ACFAAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7D7C01CFE317E00ACFAAB /* ViewController.swift */; };
 		D8F7D7C41CFE317E00ACFAAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F7D7C21CFE317E00ACFAAB /* Main.storyboard */; };
@@ -32,10 +31,6 @@
 		0CE73B68B73A7AE09C61AFAC /* Pods-SocialApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialApp/Pods-SocialApp.debug.xcconfig"; sourceTree = "<group>"; };
 		886929C1F4D80EA808048B5B /* Pods_SocialApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC23AB03FB1636CD298B2C3F /* Pods-SocialApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialApp/Pods-SocialApp.release.xcconfig"; sourceTree = "<group>"; };
-		D841054C1CFE7F4000636951 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		D841054D1CFE7F4000636951 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		D841054E1CFE7F4000636951 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		D841054F1CFE7F4000636951 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		D84105581CFE840700636951 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		D841055A1CFE841A00636951 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		D841055C1CFE842C00636951 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
@@ -44,6 +39,9 @@
 		D84105621CFE84A000636951 /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		D84105631CFE84A000636951 /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
 		D84105641CFE84A000636951 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		D841056A1CFE88B600636951 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		D841056B1CFE88B600636951 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		D841056C1CFE88B600636951 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		D8F7D7BB1CFE317E00ACFAAB /* SocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F7D7BE1CFE317E00ACFAAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8F7D7C01CFE317E00ACFAAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,10 +58,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6039B5B59804510CD73C836 /* Pods_SocialApp.framework in Frameworks */,
-				D84105511CFE7F4000636951 /* FBSDKCoreKit.framework in Frameworks */,
-				D84105531CFE7F4000636951 /* FBSDKShareKit.framework in Frameworks */,
-				D84105521CFE7F4000636951 /* FBSDKLoginKit.framework in Frameworks */,
-				D84105501CFE7F4000636951 /* Bolts.framework in Frameworks */,
+				D841056E1CFE88B600636951 /* FBSDKCoreKit.framework in Frameworks */,
+				D841056F1CFE88B600636951 /* FBSDKLoginKit.framework in Frameworks */,
+				D841056D1CFE88B600636951 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,10 +79,6 @@
 		21FC86935D7A04C4383D11CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D841054C1CFE7F4000636951 /* Bolts.framework */,
-				D841054D1CFE7F4000636951 /* FBSDKCoreKit.framework */,
-				D841054E1CFE7F4000636951 /* FBSDKLoginKit.framework */,
-				D841054F1CFE7F4000636951 /* FBSDKShareKit.framework */,
 				886929C1F4D80EA808048B5B /* Pods_SocialApp.framework */,
 			);
 			name = Frameworks;
@@ -134,6 +127,16 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		D84105691CFE887E00636951 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D841056A1CFE88B600636951 /* Bolts.framework */,
+				D841056B1CFE88B600636951 /* FBSDKCoreKit.framework */,
+				D841056C1CFE88B600636951 /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D8F7D7B21CFE317E00ACFAAB = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +158,7 @@
 		D8F7D7BD1CFE317E00ACFAAB /* SocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				D84105691CFE887E00636951 /* Frameworks */,
 				D841055E1CFE843600636951 /* Resources */,
 				D84105571CFE83D700636951 /* Utilities */,
 				D84105561CFE83D400636951 /* Model */,
@@ -422,6 +426,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SocialApp",
 				);
 				INFOPLIST_FILE = SocialApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -438,6 +443,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/SocialApp",
 				);
 				INFOPLIST_FILE = SocialApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
