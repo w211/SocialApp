@@ -11,7 +11,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,19 +22,32 @@ class ViewController: UIViewController {
         
         let facebookLogin =  FBSDKLoginManager()
         
-        facebookLogin.logInWithReadPermissions(["email"]) { (facebookResult: FBSDKLoginManagerLoginResult!, facebookError: NSError!) in
+        
+//        facebookLogin.logInWithReadPermissions(["email"]) { (facebookResult: FBSDKLoginManagerLoginResult!, facebookError: NSError!) in
+//            
+//            if facebookError != nil {
+//                print("Facebook login failed. Error \(facebookError)")
+//            } else {
+//                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
+//                print("Successfully logged in with facebook. \(accessToken)")
+//            }
+//        }
+        
             
+        facebookLogin.logInWithReadPermissions(["email"], fromViewController: self, handler: { (facebookResult: FBSDKLoginManagerLoginResult!, facebookError: NSError!) in
+                    
             if facebookError != nil {
-                print("Facebook login failed. Error \(facebookError)")
+                        print("Facebook login failed. Error \(facebookError)")
             } else {
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
                 print("Successfully logged in with facebook. \(accessToken)")
-
+            
+                
+            
             }
-        }
+        })
+     
         
     }
-
-
 }
 

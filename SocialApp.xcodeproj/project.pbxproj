@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D6039B5B59804510CD73C836 /* Pods_SocialApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 886929C1F4D80EA808048B5B /* Pods_SocialApp.framework */; };
+		D839A8B71CFFCFFB00D4BD13 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D839A8B61CFFCFFB00D4BD13 /* DataService.swift */; };
 		D84105591CFE840700636951 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84105581CFE840700636951 /* MaterialView.swift */; };
 		D841055B1CFE841A00636951 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841055A1CFE841A00636951 /* MaterialButton.swift */; };
 		D841055D1CFE842C00636951 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D841055C1CFE842C00636951 /* MaterialTextField.swift */; };
@@ -31,6 +32,7 @@
 		0CE73B68B73A7AE09C61AFAC /* Pods-SocialApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialApp/Pods-SocialApp.debug.xcconfig"; sourceTree = "<group>"; };
 		886929C1F4D80EA808048B5B /* Pods_SocialApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC23AB03FB1636CD298B2C3F /* Pods-SocialApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialApp/Pods-SocialApp.release.xcconfig"; sourceTree = "<group>"; };
+		D839A8B61CFFCFFB00D4BD13 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		D84105581CFE840700636951 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		D841055A1CFE841A00636951 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		D841055C1CFE842C00636951 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 				886929C1F4D80EA808048B5B /* Pods_SocialApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D839A8B51CFFCFE900D4BD13 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D839A8B61CFFCFFB00D4BD13 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		D84105541CFE83D000636951 /* Controller */ = {
@@ -158,6 +168,7 @@
 		D8F7D7BD1CFE317E00ACFAAB /* SocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				D839A8B51CFFCFE900D4BD13 /* Services */,
 				D84105691CFE887E00636951 /* Frameworks */,
 				D841055E1CFE843600636951 /* Resources */,
 				D84105571CFE83D700636951 /* Utilities */,
@@ -303,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D84105591CFE840700636951 /* MaterialView.swift in Sources */,
+				D839A8B71CFFCFFB00D4BD13 /* DataService.swift in Sources */,
 				D8F7D7C11CFE317E00ACFAAB /* ViewController.swift in Sources */,
 				D841055D1CFE842C00636951 /* MaterialTextField.swift in Sources */,
 				D841055B1CFE841A00636951 /* MaterialButton.swift in Sources */,
