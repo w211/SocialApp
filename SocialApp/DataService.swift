@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseDatabase
 
 // This is a singleton
 // A singleton is a single instance of an object class that you have access to
@@ -18,7 +19,14 @@ import Firebase
         // Static variable means there's only one instance of it in memory
         // Here we're creating a static variable and make is globally accessible
         
-        //private var _REF_BASE =
-
+        private var _REF_BASE = FIRDatabase.database().reference()
+        
+        var REF_BASE: FIRDatabaseReference {
+            return _REF_BASE
+        }
+        
+            
+        
+        
         
     }
