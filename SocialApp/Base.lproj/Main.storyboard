@@ -135,7 +135,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="createAccount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vil-ot-0ky"/>
+                                            <action selector="attemptLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NLz-Lm-jTc"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d08-bZ-DjY" customClass="MaterialTextField" customModule="SocialApp" customModuleProvider="target">
@@ -146,7 +146,7 @@
                                         </constraints>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -187,14 +187,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="passWord" destination="d08-bZ-DjY" id="iTm-21-p47"/>
-                        <outlet property="userName" destination="diy-mZ-LWc" id="Fa4-yi-Ue6"/>
+                        <outlet property="emailField" destination="diy-mZ-LWc" id="hXp-Wy-gpR"/>
+                        <outlet property="passwordField" destination="d08-bZ-DjY" id="vQu-Ho-cnG"/>
                         <segue destination="cT6-sf-Yi0" kind="show" identifier="loggedIn" id="eP3-iw-uap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="504"/>
+            <point key="canvasLocation" x="76" y="504"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KYd-1H-kzk">

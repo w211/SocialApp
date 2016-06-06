@@ -14,8 +14,7 @@ import FirebaseAuth
 
 class ViewController: UIViewController {
     
-    // Segues dont work in viewDidLoad
-    // They only work after all the views have appeared on the screen
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +23,13 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // Segues dont work in viewDidLoad
+        // They only work after all the views have appeared on the screen
+        
+        // Here we're seeing if there is a Key_UID
+        // If there is it'll log us right into the app since we signed in before
+        // So if KEY_UID is equal to something it'll log us in
         
         if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
             self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
@@ -63,42 +69,60 @@ class ViewController: UIViewController {
     }
     
     
-    @IBOutlet weak var userName: MaterialTextField!
+    @IBOutlet weak var emailField: MaterialTextField!
     
-    @IBOutlet weak var passWord: MaterialTextField!
+    @IBOutlet weak var passwordField: MaterialTextField!
     
-    @IBAction func createAccount(sender: AnyObject) {
+    @IBAction func attemptLogin(sender: UIButton!) {
     
-        FIRAuth.auth()?.createUserWithEmail(userName.text!, password: passWord.text!, completion: { (user: FIRUser?, error: NSError?) in
+        if let email = emailField.text where email != "", let pwd = passwordField.text where pwd != "" {
             
-            if error != nil {
+            FIRAuth.auth()?.createUserWithEmail(emailField.text!, password: passwordField.text!, completion: { (user: FIRUser?, error: NSError?) in
                 
-                print("account has been found")
-                self.login()
+                if error != nil {
+                    
+                    print("ACCOUNT HAS BEEN FOUND \(error)")
+                    self.login()
+                    
+                } else {
+                    
+                    print("USER CREATED \(user)")
+                    self.login()
+                }
                 
-            } else {
-             
-                print("user created")
-                self.login()
+            })
+
+            
+        } else {
+            showErrorAlert("Email and Password Required", msg: "Please check if you entered in an email and password")
+        }
+        
+        
+        
+        
             }
-            
-        })
-    
-    
+  
+    func showErrorAlert(title: String, msg: String) {
+        
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+        
     }
-    
+
     
     func login() {
         
-        FIRAuth.auth()?.signInWithEmail(userName.text!, password: passWord.text!, completion: { (user: FIRUser?, error:NSError?) in
+        FIRAuth.auth()?.signInWithEmail(emailField.text!, password: passwordField.text!, completion: { (user: FIRUser?, error:NSError?) in
             
             if error != nil {
                 
-                print("password or email is wrong")
+                print("PASSWORD IS WRONG \(error)")
                 
             } else {
                 
-                print("Logged in")
+                print("LOGGED IN \(user)")
                 self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                 
             }
@@ -109,4 +133,3 @@ class ViewController: UIViewController {
     
     
 }
-
