@@ -10,13 +10,24 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController {
+    
+    // Segues dont work in viewDidLoad
+    // They only work after all the views have appeared on the screen
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
+            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+        }
     }
     
     @IBAction func fbBtnPressed(sender: UIButton!) {
@@ -29,15 +40,28 @@ class ViewController: UIViewController {
             if facebookError != nil {
                         print("Facebook login failed. Error \(facebookError)")
             } else {
-                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                print("Successfully logged in with facebook. \(accessToken)")
+                let accessToken = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString);
+                let printableAccessToken = FBSDKAccessToken.currentAccessToken().tokenString
+                    print("Successfully logged in with facebook. \(printableAccessToken)")
+                
             
-                DataService.ds.REF_BASE
-            
+                FIRAuth.auth()?.signInWithCredential(accessToken, completion: { (authData: FIRUser?, error: NSError?) in
+                    
+                    if error != nil {
+                        print("Login failed. \(error)")
+                    } else {
+                        print("Logged In! \(authData)")
+                        NSUserDefaults.standardUserDefaults().setValue(authData?.uid, forKey: KEY_UID)
+                        self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                    }
+                    
+                })
+
             }
         })
      
     }
+    
     
     @IBOutlet weak var userName: MaterialTextField!
     
@@ -56,13 +80,13 @@ class ViewController: UIViewController {
              
                 print("user created")
                 self.login()
-                
             }
             
         })
     
     
     }
+    
     
     func login() {
         
@@ -75,6 +99,7 @@ class ViewController: UIViewController {
             } else {
                 
                 print("Logged in")
+                self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                 
             }
             

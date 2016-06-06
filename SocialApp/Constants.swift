@@ -15,3 +15,11 @@ let SHADOW_COLOR: CGFloat = 157.0 / 255.0
 // If you want to get the propers color value you have to take the value of it and you have to divide it by 255
 // Because 0.0 is black and 1.0 is white so 157.0 / 255.0 is in between 0 and 1
 // Now go back to MaterialVIew and set the color of the shadow
+
+let KEY_UID = "uid"
+
+
+
+// Segues
+
+let SEGUE_LOGGED_IN = "loggedIn"

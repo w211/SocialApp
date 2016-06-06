@@ -189,11 +189,30 @@
                     <connections>
                         <outlet property="passWord" destination="d08-bZ-DjY" id="iTm-21-p47"/>
                         <outlet property="userName" destination="diy-mZ-LWc" id="Fa4-yi-Ue6"/>
+                        <segue destination="cT6-sf-Yi0" kind="show" identifier="loggedIn" id="eP3-iw-uap"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="397"/>
+            <point key="canvasLocation" x="84" y="504"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KYd-1H-kzk">
+            <objects>
+                <viewController id="cT6-sf-Yi0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pbd-72-NCF"/>
+                        <viewControllerLayoutGuide type="bottom" id="TM8-Mb-NhU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KYF-1Y-jX7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.1176470588" green="0.53333333329999999" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Zx-ZZ-0tI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="717" y="504"/>
         </scene>
     </scenes>
     <resources>
