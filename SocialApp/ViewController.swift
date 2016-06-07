@@ -14,11 +14,8 @@ import FirebaseAuth
 
 class ViewController: UIViewController {
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -39,7 +36,6 @@ class ViewController: UIViewController {
     @IBAction func fbBtnPressed(sender: UIButton!) {
         
         let facebookLogin =  FBSDKLoginManager()
-        
             
         facebookLogin.logInWithReadPermissions(["email"], fromViewController: self, handler: { (facebookResult: FBSDKLoginManagerLoginResult!, facebookError: NSError!) in
                     
@@ -50,7 +46,6 @@ class ViewController: UIViewController {
                 let printableAccessToken = FBSDKAccessToken.currentAccessToken().tokenString
                     print("Successfully logged in with facebook. \(printableAccessToken)")
                 
-            
                 FIRAuth.auth()?.signInWithCredential(accessToken, completion: { (authData: FIRUser?, error: NSError?) in
                     
                     if error != nil {
@@ -60,12 +55,9 @@ class ViewController: UIViewController {
                         NSUserDefaults.standardUserDefaults().setValue(authData?.uid, forKey: KEY_UID)
                         self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                     }
-                    
                 })
-
             }
         })
-     
     }
     
     
@@ -80,56 +72,42 @@ class ViewController: UIViewController {
             FIRAuth.auth()?.createUserWithEmail(emailField.text!, password: passwordField.text!, completion: { (user: FIRUser?, error: NSError?) in
                 
                 if error != nil {
-                    
                     print("ACCOUNT HAS BEEN FOUND \(error)")
                     self.login()
-                    
                 } else {
-                    
                     print("USER CREATED \(user)")
                     self.login()
                 }
-                
             })
-
             
         } else {
             showErrorAlert("Email and Password Required", msg: "Please check if you entered in an email and password")
         }
-        
-        
-        
-        
-            }
-  
-    func showErrorAlert(title: String, msg: String) {
-        
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
-        
     }
-
+  
     
     func login() {
         
         FIRAuth.auth()?.signInWithEmail(emailField.text!, password: passwordField.text!, completion: { (user: FIRUser?, error:NSError?) in
             
             if error != nil {
-                
                 print("PASSWORD IS WRONG \(error)")
-                
+                self.showErrorAlert("Incorrect Password", msg: "Please check if you have entered the correct password")
             } else {
-                
                 print("LOGGED IN \(user)")
+                NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
                 self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
-                
             }
-            
         })
-        
     }
     
+    func showErrorAlert(title: String, msg: String) {
+        
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+    }
+
     
 }
