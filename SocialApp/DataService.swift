@@ -13,6 +13,8 @@ import FirebaseDatabase
 // This is a singleton
 // A singleton is a single instance of an object class that you have access to
 
+let URL_BASE = "https://socialapp-c56e3.firebaseio.com"
+
     class DataService {
         static let ds = DataService()
     
@@ -25,7 +27,11 @@ import FirebaseDatabase
             return _REF_BASE
         }
         
-            
+        func createFirebaseUser(uid: String, user: Dictionary<String, String>) {
+            //Here is gets the uid from a specific user
+            //However if there isn't a uid it will create one
+            REF_BASE.child("users").child(user!.uid).setValue(["username": username])
+        }
         
         
         

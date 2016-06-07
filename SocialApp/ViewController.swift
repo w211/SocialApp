@@ -52,6 +52,11 @@ class ViewController: UIViewController {
                         print("Login failed. \(error)")
                     } else {
                         print("Logged In! \(authData)")
+                        
+                        //let user = ["provider": authData?.providerID, "blah": "test"]
+                        
+                        DataService.ds.REF_BASE.child("users").child(user!.uid).setValue(["username" : username])
+                        
                         NSUserDefaults.standardUserDefaults().setValue(authData?.uid, forKey: KEY_UID)
                         self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                     }
