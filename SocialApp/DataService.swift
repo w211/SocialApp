@@ -22,15 +22,27 @@ let URL_BASE = "https://socialapp-c56e3.firebaseio.com"
         // Here we're creating a static variable and make is globally accessible
         
         private var _REF_BASE = FIRDatabase.database().reference()
+        private var _REF_POSTS = FIRDatabase.database().referenceFromURL("\(URL_BASE)/posts")
+        private var _REF_USERS = FIRDatabase.database().referenceFromURL("\(URL_BASE)/users")
+
         
         var REF_BASE: FIRDatabaseReference {
             return _REF_BASE
         }
         
+        var REF_POSTS: FIRDatabaseReference {
+            return _REF_POSTS
+        }
+        
+        var REF_USERS: FIRDatabaseReference {
+            return _REF_USERS
+        }
+        
         func createFirebaseUser(uid: String, user: Dictionary<String, String>) {
             //Here is gets the uid from a specific user
             //However if there isn't a uid it will create one
-            REF_BASE.child("users").child(user!.uid).setValue(["username": username])
+            
+            REF_USERS.child(uid).setValue(user)
         }
         
         

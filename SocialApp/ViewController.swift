@@ -51,11 +51,11 @@ class ViewController: UIViewController {
                     if error != nil {
                         print("Login failed. \(error)")
                     } else {
-                        print("Logged In! \(authData)")
+                        print("Logged In! \(authData?.providerID)")
                         
-                        //let user = ["provider": authData?.providerID, "blah": "test"]
+                        let user: [String: String] = ["provider": "facebook", "blah": "test"]
                         
-                        DataService.ds.REF_BASE.child("users").child(user!.uid).setValue(["username" : username])
+                        DataService.ds.createFirebaseUser(authData!.uid, user: user)
                         
                         NSUserDefaults.standardUserDefaults().setValue(authData?.uid, forKey: KEY_UID)
                         self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
