@@ -53,6 +53,7 @@ class ViewController: UIViewController {
                     } else {
                         print("Logged In! \(authData?.providerID)")
                         
+                        
                         let user: [String: String] = ["provider": "facebook", "blah": "test"]
                         
                         DataService.ds.createFirebaseUser(authData!.uid, user: user)
@@ -93,14 +94,18 @@ class ViewController: UIViewController {
     
     func login() {
         
-        FIRAuth.auth()?.signInWithEmail(emailField.text!, password: passwordField.text!, completion: { (user: FIRUser?, error:NSError?) in
+        FIRAuth.auth()?.signInWithEmail(emailField.text!, password: passwordField.text!, completion: { (authData: FIRUser?, error:NSError?) in
             
             if error != nil {
                 print("PASSWORD IS WRONG \(error)")
                 self.showErrorAlert("Incorrect Password", msg: "Please check if you have entered the correct password")
             } else {
-                print("LOGGED IN \(user)")
-                NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
+                print("LOGGED IN \(authData)")
+                
+                let user: [String: String] = ["provider": "email", "blah2": "test2"]
+                DataService.ds.createFirebaseUser(authData!.uid, user: user)
+                
+                NSUserDefaults.standardUserDefaults().setValue(authData?.uid, forKey: KEY_UID)
                 self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
             }
         })
