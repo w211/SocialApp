@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -308,8 +308,20 @@
                                                                             <color key="textColor" red="0.95686274510000002" green="0.31764705879999999" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart-empty" translatesAutoresizingMaskIntoConstraints="NO" id="hbN-T1-RJH">
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="heart-empty" translatesAutoresizingMaskIntoConstraints="NO" id="hbN-T1-RJH">
                                                                             <rect key="frame" x="227" y="0.0" width="181" height="50"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="50" id="72f-xx-Ork"/>
+                                                                                <constraint firstAttribute="width" constant="60" id="7vH-ZO-uIH"/>
+                                                                                <constraint firstAttribute="width" constant="60" id="ykK-Jw-SCE"/>
+                                                                            </constraints>
+                                                                            <variation key="default">
+                                                                                <mask key="constraints">
+                                                                                    <exclude reference="72f-xx-Ork"/>
+                                                                                    <exclude reference="7vH-ZO-uIH"/>
+                                                                                    <exclude reference="ykK-Jw-SCE"/>
+                                                                                </mask>
+                                                                            </variation>
                                                                         </imageView>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oOi-od-Ltl">
                                                                             <rect key="frame" x="418" y="0.0" width="126" height="50"/>
