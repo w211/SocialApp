@@ -45,6 +45,10 @@ let URL_BASE = "https://socialapp-c56e3.firebaseio.com"
             REF_USERS.child(uid).setValue(user)
         }
         
-        
+        var REF_USER_CURRENT: FIRDatabaseReference {
+            let uid = NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) as! String
+            let user = FIRDatabase.database().referenceFromURL("\(URL_BASE)").child("users").child(uid)
+            return user
+        }
         
     }

@@ -34,7 +34,6 @@ class PostCell: UITableViewCell {
         //ClipToBounds make sures the image doesnt go outside of where it's supposed to go
         profileImg.clipsToBounds = true
         showcaseImg.clipsToBounds = true
-        
     }
 
     func configureCell(post: Post, img: UIImage?) {
@@ -63,6 +62,8 @@ class PostCell: UITableViewCell {
         } else {
             self.showcaseImg.hidden = true
         }
+        
+        
         
     }
 
