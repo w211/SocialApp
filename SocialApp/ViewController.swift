@@ -54,7 +54,7 @@ class ViewController: UIViewController {
                         print("Logged In! \(authData?.providerID)")
                         
                         
-                        let user: [String: String] = ["provider": "facebook", "blah": "test"]
+                        let user: [String: String] = ["provider": accessToken.provider, "blah": "test"]
                         
                         DataService.ds.createFirebaseUser(authData!.uid, user: user)
                         

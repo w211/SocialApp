@@ -8,6 +8,8 @@
 
 import UIKit
 import Alamofire
+import Firebase
+import FirebaseDatabase
 
 // We're using Cooca Touch class since this is a view not a controller
 
@@ -17,12 +19,19 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var showcaseImg: UIImageView!
     @IBOutlet weak var descriptionText: UITextView!
     @IBOutlet weak var likesLbl: UILabel!
+    @IBOutlet weak var likeImage: UIImageView!
     
     var post: Post!
     var request: Request?
+    var likeRef: FIRDatabaseReference!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    
+        let tap = UITapGestureRecognizer(target: self, action: "likeTapped:")
+        tap.numberOfTapsRequired = 1
+        likeImage.addGestureRecognizer(tap)
+        likeImage.userInteractionEnabled = true
     }
     
     override func drawRect(rect: CGRect) {
@@ -38,6 +47,8 @@ class PostCell: UITableViewCell {
 
     func configureCell(post: Post, img: UIImage?) {
         self.post = post
+        
+        likeRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
         
         self.descriptionText.text = post.postDescription
         self.likesLbl.text = "\(post.likes)"
@@ -55,7 +66,6 @@ class PostCell: UITableViewCell {
                         self.showcaseImg.image = img
                         FeedVC.imageCache.setObject(img, forKey: self.post.imageUrl!)
                     }
-                    
                 })
             }
             
@@ -63,8 +73,40 @@ class PostCell: UITableViewCell {
             self.showcaseImg.hidden = true
         }
         
-        
-        
+        likeRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let doesNotExist = snapshot.value as? NSNull {
+                // In Firebase, data that doesnt exist is a NSNull
+                // This is a Firebase thing
+                // In Firebase, if there isnt data in ".value" you will get a NSNull
+                // So dont check against nil or null
+                // This means when we get to this portion of the code we havent liked this specific post
+                
+                self.likeImage.image = UIImage(named: "heart-empty")
+            } else {
+                self.likeImage.image = UIImage(named: "heart-full")
+            }
+        })
     }
-
+    
+    func likeTapped(sender: UITapGestureRecognizer) {
+        
+        likeRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if let doesNotExist = snapshot.value as? NSNull {
+                // In Firebase, data that doesnt exist is a NSNull
+                // This is a Firebase thing
+                // In Firebase, if there isnt data in ".value" you will get a NSNull
+                // So dont check against nil or null
+                // This means when we get to this portion of the code we havent liked this specific post
+                
+                self.likeImage.image = UIImage(named: "heart-full")
+                self.post.adjustLikes(true)
+                self.likeRef.setValue(true)
+                
+            } else {
+                self.likeImage.image = UIImage(named: "heart-empty")
+                self.post.adjustLikes(false)
+                self.likeRef.removeValue()
+            }
+        })
+    }
 }
